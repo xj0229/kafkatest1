@@ -44,7 +44,7 @@ public class XMPPFunction extends BaseFunction{
 		
 		ConnectionConfiguration config = new ConnectionConfiguration((String)conf.get(XMPP_SERVER));
 		
-		this.xmppConnection = new XMPPConnection(config);
+		this.xmppConnection = new XMPPTCPConnection(config);
 		
 	}
 
