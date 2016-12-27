@@ -70,7 +70,7 @@ public class XMPPFunction extends BaseFunction{
 		Message msg = new Message(this.to, Type.normal);
 		msg.setBody(this.mapper.toMessageBody(tuple));
 		try {
-			this.xmppConnection.sendPacket(msg);
+			this.xmppConnection.sendStanza(msg);
 		} catch (NotConnectedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
