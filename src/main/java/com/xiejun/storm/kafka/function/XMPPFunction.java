@@ -58,7 +58,7 @@ public class XMPPFunction extends BaseFunction{
 			this.xmppConnection.connect();
 			this.xmppConnection.login((String)conf.get(XMPP_USER), (String)conf.get(XMPP_PASSWORD));
 			
-		}catch(SmackException | IOException | XMPPException e){
+		}catch(SmackException | IOException | XMPPException e){//this only fit to JRE 1.7
 			LOG.warn("Error initializing XMPP Channel", e);
 		}
 		
@@ -70,7 +70,7 @@ public class XMPPFunction extends BaseFunction{
 		Message msg = new Message(this.to, Type.normal);
 		msg.setBody(this.mapper.toMessageBody(tuple));
 		try {
-			this.xmppConnection.sendStanza(msg);
+			this.xmppConnection.sendStanza(msg);//sendPacket(msg);
 		} catch (NotConnectedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
