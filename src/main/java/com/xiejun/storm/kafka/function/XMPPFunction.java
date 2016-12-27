@@ -63,7 +63,8 @@ public class XMPPFunction extends BaseFunction{
 		}
 		
 	}
-
+	
+//Override Annotation is only fit to JRE 1.7?
 	@Override
 	public void execute(TridentTuple tuple, TridentCollector collector) {
 		// TODO Auto-generated method stub
