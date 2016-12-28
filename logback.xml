@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="KAFKA" class="com.xiejun.storm.kafka.writekafka.KafkaAppender">
+		<topic>foo</topic>
+		<zookeeperHost>localhost:2181</zookeeperHost>
+		<formatter class="com.xiejun.storm.kafka.utils.JsonFormatter"></formatter>
+		<expectJson>false</expectJson>
+	</appender>
+	<root level="debug">
+		<appender-ref ref="KAFKA"></appender-ref>
+	</root>
+</configuration>
