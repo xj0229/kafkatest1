@@ -54,6 +54,8 @@ public class KafkaAppender extends AppenderBase<ILoggingEvent> {
 		
 		super.start();
 		
+		System.out.println("logback start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		
 		Properties props = new Properties();
 		
 		props.put("zk.connect", this.zookeeperHost);

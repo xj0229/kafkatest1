@@ -3,11 +3,31 @@ package com.xiejun.storm.kafka.sourcedata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ch.qos.logback.classic.LoggerContext;
+import ch.qos.logback.classic.joran.JoranConfigurator;
+import ch.qos.logback.core.joran.spi.JoranException;
+import ch.qos.logback.core.util.StatusPrinter;
+
 public class RogueApplication {
 	private static final Logger LOG = LoggerFactory.getLogger(RogueApplication.class);
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, JoranException {
 		// TODO Auto-generated method stub
+		
+		LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+		
+		StatusPrinter.print(lc);
+		
+		JoranConfigurator configurator = new JoranConfigurator();
+		
+		configurator.setContext(lc);
+		
+		lc.reset();
+		
+		configurator.doConfigure("D:\\logback-test.xml");
+		
+		StatusPrinter.print(lc);
+		
 		int slowCount = 6;
 		
 		int fastCount = 15;
