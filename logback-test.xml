@@ -2,7 +2,7 @@
 <configuration>
 	<appender name="KAFKA" class="com.xiejun.storm.kafka.writekafka.KafkaAppender">
 		<topic>mytopic</topic>
-		<zookeeperHost>localhost:2181</zookeeperHost>
+		<zookeeperHost>10.89.34.199970:9092</zookeeperHost>
 	</appender>
 	<root level="debug">
 		<appender-ref ref="KAFKA"></appender-ref>

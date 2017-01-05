@@ -20,13 +20,17 @@ public class RogueApplication {
 		
 		JoranConfigurator configurator = new JoranConfigurator();
 		
+		lc.reset();
+		
 		configurator.setContext(lc);
 		
 		lc.reset();
 		
-		configurator.doConfigure("D:\\logback-test.xml");
+		configurator.doConfigure("D:\\logback.xml");
 		
 		StatusPrinter.print(lc);
+		
+		StatusPrinter.printInCaseOfErrorsOrWarnings(lc);
 		
 		int slowCount = 6;
 		

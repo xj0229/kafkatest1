@@ -58,9 +58,22 @@ public class KafkaAppender extends AppenderBase<ILoggingEvent> {
 		
 		Properties props = new Properties();
 		
-		props.put("zk.connect", this.zookeeperHost);
+		//props.put("zk.connect", this.zookeeperHost);
 		
-		props.put("serializer.class", "kafka.serializer.StringEncoder");
+		props.put("bootstrap.servers", this.zookeeperHost);
+		props.put("acks", "all");
+		props.put("retries", 0);
+		props.put("batch.size", 16384);
+		props.put("linger.ms", 1);
+		props.put("buffer.memory", 33554432);
+		props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+		props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+		
+		//Producer<String, String> producer = new KafkaProducer<>(props);
+		
+		//props.put("serializer.class", "kafka.serializer.StringEncoder");
+		
+		//props.put("serializer.class", "org.apache.kafka.common.serialization.StringSerializer");
 		
 		this.producer = new KafkaProducer<>(props);
 	}
@@ -81,6 +94,8 @@ public class KafkaAppender extends AppenderBase<ILoggingEvent> {
 		ProducerRecord<String, String> data = new ProducerRecord<String, String>(this.topic, playload);
 		
 		this.producer.send(data);
+		
+		System.out.println("Message Sended@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+this.zookeeperHost + this.topic +playload);
 		
 	}
 

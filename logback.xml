@@ -2,7 +2,7 @@
 <configuration>
 	<appender name="KAFKA" class="com.xiejun.storm.kafka.writekafka.KafkaAppender">
 		<topic>foo</topic>
-		<zookeeperHost>localhost:2181</zookeeperHost>
+		<zookeeperHost>10.89.34.170:9092</zookeeperHost>
 		<formatter class="com.xiejun.storm.kafka.utils.JsonFormatter"></formatter>
 		<expectJson>false</expectJson>
 	</appender>

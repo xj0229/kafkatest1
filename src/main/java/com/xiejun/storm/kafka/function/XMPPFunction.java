@@ -49,7 +49,7 @@ public class XMPPFunction extends BaseFunction{
 		this.to = (String)conf.get(XMPP_TO);
 		
 		XMPPTCPConnectionConfiguration config = XMPPTCPConnectionConfiguration.builder()
-				.setHost((String)conf.get(XMPP_SERVER)).build();
+				.setHost("10.89.34.170").setServiceName((String) conf.get(XMPP_SERVER)).build();
 		//ConnectionConfiguration config = new XMPPTCPConnectionConfiguration(null);
 		
 		this.xmppConnection = new XMPPTCPConnection(config);
