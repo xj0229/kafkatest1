@@ -12,7 +12,7 @@ public class KafkaConsumerTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "10.89.34.170:9092");
+		props.put("bootstrap.servers", "192.168.1.114:9092");
 		props.put("group.id", "test");
 		props.put("enable.auto.commit", "true");
 		props.put("auto.commit.interval.ms", "1000");
@@ -20,11 +20,11 @@ public class KafkaConsumerTest {
 		props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 		KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
 		consumer.subscribe(Arrays.asList("test"));
-		//while (true) {
+		while (true) {
 		    ConsumerRecords<String, String> records = consumer.poll(100);
 		    for (ConsumerRecord<String, String> record : records)
 		        System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
-		//}
+		}
 	}
 
 }

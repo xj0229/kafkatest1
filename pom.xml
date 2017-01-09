@@ -18,7 +18,7 @@
   <repository>
   <id>nexus</id>
   <name>myownnexus</name>
-  <url>http://10.89.34.191:8081/nexus/content/groups/public</url>
+  <url>http://maven.aliyun.com:8081/nexus/content/groups/public</url>
   </repository>
   </repositories>
 

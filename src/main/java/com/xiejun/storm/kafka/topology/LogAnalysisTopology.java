@@ -34,9 +34,9 @@ public class LogAnalysisTopology {
 		
 		//BrokerHosts zk = new ZkHosts("localhost");
 		
-		BrokerHosts zk = new ZkHosts("10.89.34.170");
+		BrokerHosts zk = new ZkHosts("192.168.1.114");
 		
-		TridentKafkaConfig spoutConf = new TridentKafkaConfig(zk, "log-analysis");
+		TridentKafkaConfig spoutConf = new TridentKafkaConfig(zk, "xjtest");
 		
 		spoutConf.scheme = new SchemeAsMultiScheme(new StringScheme());
 		

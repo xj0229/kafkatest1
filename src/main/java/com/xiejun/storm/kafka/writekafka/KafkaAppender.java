@@ -58,8 +58,6 @@ public class KafkaAppender extends AppenderBase<ILoggingEvent> {
 		
 		Properties props = new Properties();
 		
-		//props.put("zk.connect", this.zookeeperHost);
-		
 		props.put("bootstrap.servers", this.zookeeperHost);
 		props.put("acks", "all");
 		props.put("retries", 0);
@@ -69,13 +67,11 @@ public class KafkaAppender extends AppenderBase<ILoggingEvent> {
 		props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 		props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 		
-		//Producer<String, String> producer = new KafkaProducer<>(props);
-		
-		//props.put("serializer.class", "kafka.serializer.StringEncoder");
-		
-		//props.put("serializer.class", "org.apache.kafka.common.serialization.StringSerializer");
-		
 		this.producer = new KafkaProducer<>(props);
+		
+		//这里必须发一次消息，初步推断与logback的机制有关
+		ProducerRecord<String, String> data = new ProducerRecord<String, String>(this.topic, Integer.toString(11));
+		this.producer.send(data);
 	}
 	
 	@Override
@@ -94,8 +90,6 @@ public class KafkaAppender extends AppenderBase<ILoggingEvent> {
 		ProducerRecord<String, String> data = new ProducerRecord<String, String>(this.topic, playload);
 		
 		this.producer.send(data);
-		
-		System.out.println("Message Sended@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+this.zookeeperHost + this.topic +playload);
 		
 	}
 

@@ -26,7 +26,7 @@ public class RogueApplication {
 		
 		lc.reset();
 		
-		configurator.doConfigure("D:\\logback.xml");
+		configurator.doConfigure("E:\\logback.xml");
 		
 		StatusPrinter.print(lc);
 		
