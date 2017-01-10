@@ -78,6 +78,5 @@ public class XMPPFunction extends BaseFunction{
 		}
 		
 	}
-	
 
 }
