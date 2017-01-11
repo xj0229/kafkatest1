@@ -22,14 +22,15 @@ public class XMPPFunctionTest {
 		XMPPTCPConnectionConfiguration config = XMPPTCPConnectionConfiguration.builder()
 				.setHost("192.168.1.106").setServiceName("xiejun-machine")
 				.setSecurityMode(SecurityMode.disabled).setDebuggerEnabled(true)
-				.setSendPresence(false).setUsernameAndPassword("storm1", "123456xj")
-				.setResource("Friends").build();
+				.setSendPresence(false)
+				.setUsernameAndPassword("storm1", "123456xj")
+				.setResource("Spark").build();
 		
 
 		
 		XMPPTCPConnection xmppConnection = new XMPPTCPConnection(config);
 		try{
-			xmppConnection.connect().login();;
+			xmppConnection.connect().login();
 
 		}catch(Exception e){
 			e.printStackTrace();

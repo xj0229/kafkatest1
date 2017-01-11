@@ -36,7 +36,7 @@ public class LogAnalysisTopology {
 		
 		BrokerHosts zk = new ZkHosts("192.168.1.114");
 		
-		TridentKafkaConfig spoutConf = new TridentKafkaConfig(zk, "xjtest");
+		TridentKafkaConfig spoutConf = new TridentKafkaConfig(zk, "ktest");
 		
 		spoutConf.scheme = new SchemeAsMultiScheme(new StringScheme());
 		
@@ -68,16 +68,17 @@ public class LogAnalysisTopology {
 		
 	}
 	
+	//do not have log4j appender
 	public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException, AuthorizationException{
 		Config config = new Config();
 		
-		config.put(XMPPFunction.XMPP_USER, "stormkafka");
+		config.put(XMPPFunction.XMPP_USER, "storm1");
 		
-		config.put(XMPPFunction.XMPP_PASSWORD, "storm");
+		config.put(XMPPFunction.XMPP_PASSWORD, "123456xj");
 		
 		config.put(XMPPFunction.XMPP_SERVER, "xiejun-machine");
 		
-		config.put(XMPPFunction.XMPP_TO, "xjt1");
+		config.put(XMPPFunction.XMPP_TO, "xjtest1");
 		
 		config.setMaxSpoutPending(5);
 		
